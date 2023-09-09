@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room information</title>
+    <style>
+        * {box-sizing: border-box}
+        body {font-family: Verdana, sans-serif; margin:0}
+        .mySlides {display: none}
+        img {vertical-align: middle;}
+        
+        
+        /* Slideshow container */
+        .slideshow-container {
+          max-width: 600px;
+          position: relative;
+          margin: auto;
+        }
+        
+        /* Next & previous buttons */
+        .prev, .next {
+          cursor: pointer;
+          position: relative;
+          top: 50%;
+          width: auto;
+          padding: 16px;
+          margin-top: -22px;
+          color: rgb(24, 23, 23);
+          font-weight: bold;
+          font-size: 18px;
+          transition: 0.6s ease;
+          border-radius: 0 3px 3px 0;
+          user-select: none;
+        }
+        
+        /* Position thbe "next button" to the right */
+        .next {
+          right: 0;
+          border-radius: 3px 0 0 3px;
+        }
+        
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+          background-color: rgba(172, 4, 4, 0.8);
+        }
+        
+        
+        /* Number text (1/3 etc) */
+        .numbertext {
+          color: #f2f2f2;
+          font-size: 12px;
+          padding: 4px 8px;
+          position: absolute;
+          top: 0;
+        }
+        
+        /* The dots/bullets/indicators */
+        .dot {
+          cursor: pointer;
+          height: 15px;
+          width: 15px;
+          margin: 0 2px;
+          background-color: #bbb;
+          border-radius: 50%;
+          display: inline-block;
+          transition: background-color 0.6s ease;
+        }
+        
+        .active, .dot:hover {
+          background-color: #717171;
+        }
+        
+        /* Fading animation */
+        .fade {
+          animation-name: fade;
+          animation-duration: 1.5s;
+        }
+        
+        @keyframes fade {
+          from {opacity: .4} 
+          to {opacity: 1}
+        }
+        
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+          .prev, .next,.text {font-size: 11px}
+        }
+
+        
+        </style>
+        </head>
+        <body>
+                
+        <div class="slideshow-container" style="text-align: center;">
+        
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 5</div>
+          <img src="C:\Users\i9\Desktop\web\download1.jfif" style="width:60%">
+          <div class="text"></div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 5</div>
+          <img src="C:\Users\i9\Desktop\web\download2.jfif" style="width:60%">
+          <div class="text"></div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 5</div>
+            <img src="C:\Users\i9\Desktop\web\download3.jfif" style="width:60%">
+            <div class="text"></div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 5</div>
+            <img src="C:\Users\i9\Desktop\web\download4.jfif" style="width:60%">
+            <div class="text"></div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">5 / 5</div>
+          <img src="C:\Users\i9\Desktop\web\download5.jpeg" style="width:50%">
+          <div class="text"></div>
+      </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+        
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+          <span class="dot" onclick="currentSlide(5)"></span> 
+        </div>
+        
+        <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        
+         function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+        </script>
+
+     </head>
+         <body style="text-align: left;"><br></br>
+          
+        <!--room information-->
+
+    <label>Room Type :</label>
+    <select>
+        <option value="Room">Delux Room</option>
+        <option value="Room">Suite Room</option>
+    </select><br></br>
+
+    <label>Amenties :</label>
+    <select>
+        <option value="Room">AC</option>
+        <option value="Room">LOCKER</option>
+    </select><br></br>
+
+    <label>Room Rates :</label>
+    <select>
+        <option value="Room">Deluxe Room - 2500/-</option>
+        <option value="Room">Suite Room - 4000/-</option>
+        <option value="Room">AC - 1000/-</option>
+        <option value="Room">Locker - 300/-</option>
+    </select><br></br>
+
+    <!--calculate Balance-->
+        
+        <label for="totalAmount">Total Amount:</label>
+        <input type="number" id="totalAmount" step="1" placeholder="Enter total amount" oninput="calculateBalance()" /> <br></br>        
+        <label for="advancePayment">Advance Payment:</label>
+        <input type="number" id="advancePayment" step="1" placeholder="Enter advance payment" oninput="calculateBalance()" /><br></br>
+
+        <label for="balanceAmount">Balance Amount:</label>
+        <input type="text" id="balanceAmount" readonly />
+        
+        <script>
+            function calculateBalance() {
+                // Get the values entered by the user
+                var totalAmount = parseFloat(document.getElementById('totalAmount').value);
+                var advancePayment = parseFloat(document.getElementById('advancePayment').value);
+    
+                // Calculate the balance amount
+                var balanceAmount = totalAmount - advancePayment;
+    
+                // Display the balance amount in the 'balanceAmount' input field
+                document.getElementById('balanceAmount').value = balanceAmount.toFixed(2); // Format to two decimal places
+            }
+        </script>
+  
+      
+      <!--total room cost-->
+
+        <h2>Total Room Cost</h2>
+        
+        <label for="roomRate">Room Rate per Day:</label>
+        <input type="number" id="roomRate" step="0.01" placeholder="Enter room rate" oninput="calculateTotalCost()" /><br></br>
+        
+        <label for="totalDays">Total Number of Days:</label>
+        <input type="number" id="totalDays" placeholder="Enter total days" oninput="calculateTotalCost()" /><br></br>
+        
+        <label for="totalCost">Total Room Cost:</label>
+        <input type="text" id="totalCost" readonly />
+        
+        <script>
+            function calculateTotalCost() {
+                // Get the values entered by the user
+                var roomRate = parseFloat(document.getElementById('roomRate').value);
+                var totalDays = parseInt(document.getElementById('totalDays').value);
+    
+                // Calculate the total room cost
+                var totalCost = roomRate * totalDays;
+    
+                // Display the total cost in the 'totalCost' input field
+                document.getElementById('totalCost').value = totalCost.toFixed(2); // Format to two decimal places
+            }
+        </script>
+     
+    <!--total Amentis-->
+
+    <body>
+    <h2>Total Amenities Cost Calculator</h2>
+    
+    <label for="amenitiesCostPerDay">Amenities Cost per Day:</label>
+    <input type="number" id="amenitiesCostPerDay" placeholder="Enter amenities cost per day"><br></br>
+    
+    <label for="totalDays">Total Number of Days:</label>
+    <input type="number" id="totalDays" placeholder="Enter total number of days"><br></br>
+    
+    <label for="totalAmenitiesCost">Total Amenities Cost:</label>
+    <input type="text" id="totalAmenitiesCost" readonly><br></br>
+    
+    <script>
+        function calculateTotalAmenitiesCost() {
+            // Get the values of amenities cost per day and total number of days
+            var amenitiesCostPerDay = parseFloat(document.getElementById('amenitiesCostPerDay').value);
+            var totalDays = parseFloat(document.getElementById('totalDays').value);
+            
+            // Calculate the total amenities cost
+            var totalAmenitiesCost = amenitiesCostPerDay * totalDays;
+            
+            // Display the result in the totalAmenitiesCost input field
+            document.getElementById('totalAmenitiesCost').value = "$" + totalAmenitiesCost.toFixed(2);
+        }
+
+        // Attach the calculateTotalAmenitiesCost function to input fields for real-time calculation
+        document.getElementById('amenitiesCostPerDay').addEventListener('input', calculateTotalAmenitiesCost);
+        document.getElementById('totalDays').addEventListener('input', calculateTotalAmenitiesCost);
+    </script>
+
+    <!--total cost caculation-->
+
+    <h2>Total Cost Calculator</h2>
+    
+    <label for="roomCost">Total Room Cost:</label>
+    <input type="number" id="roomCost" placeholder="Enter room cost" oninput="calculateTotalCost()" required><br><br>
+    
+    <label for="amenitiesCost">Total Amenities Cost:</label>
+    <input type="number" id="amenitiesCost" placeholder="Enter amenities cost" oninput="calculateTotalCost()" required><br><br>
+    
+    <label for="totalCost">Total Cost:</label>
+    <input type="number" id="totalCost" placeholder="Total cost will be calculated automatically" readonly><br><br>
+    
+    <script>
+        function calculateTotalCost() {
+            const roomCost = parseFloat(document.getElementById("roomCost").value) || 0;
+            const amenitiesCost = parseFloat(document.getElementById("amenitiesCost").value) || 0;
+            
+            const totalCost = roomCost + amenitiesCost;
+            
+            document.getElementById("totalCost").value = totalCost.toFixed(2);
+        }
+    </script>
+<!--Additional charges fror extra person-->
+
+      <h2>Additional charges calculator</h2>
+    
+    <label for="numberOfPeople">Number of People:</label>
+    <input type="number" id="numberOfPeople" placeholder="Enter number of people" oninput="calculateAdditionalCharges()" required><br><br>
+    
+    <label for="numberOfDays">Number of Days:</label>
+    <input type="number" id="numberOfDays" placeholder="Enter number of days" oninput="calculateAdditionalCharges()" required><br><br>
+    
+    <label for="additionalCharges">Additional Charges:</label>
+    <input type="number" id="additionalCharges" placeholder="Additional charges will be calculated automatically" readonly><br><br>
+    
+    <script>
+        function calculateAdditionalCharges() {
+            const numberOfPeople = parseInt(document.getElementById("numberOfPeople").value) || 0;
+            const numberOfDays = parseInt(document.getElementById("numberOfDays").value) || 0;
+            
+            // Calculate additional charges for extra people beyond 2
+            const extraPeople = Math.max(0, numberOfPeople - 2);
+            const additionalCharges = extraPeople * 1000 * numberOfDays;
+            
+            document.getElementById("additionalCharges").value = additionalCharges.toFixed(2);
+        }
+    </script>
+
+
+   <a href="payment.html"><input type="button" value="PAY ADVANCE AMOUNT"></a>
+  </body>
+</html>
